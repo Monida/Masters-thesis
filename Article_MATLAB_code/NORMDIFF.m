@@ -1,0 +1,28 @@
+%% Find normalized difference mean and SD
+DiffNormRHipVicRef=differGaitCyclesNorm(NormRHipVic,NormRHipRef);
+DiffNormRKneeVicRef=differGaitCyclesNorm(NormRKneeVic,NormRKneeRef);
+DiffNormRAnkleVicRef=differGaitCyclesNorm(NormRAnkleVic,NormRAnkleRef);
+DiffNormLHipVicRef=differGaitCyclesNorm(NormLHipVic,NormLHipRef);
+DiffNormLKneeVicRef=differGaitCyclesNorm(NormLKneeVic,NormLKneeRef);
+DiffNormLAnkleVicRef=differGaitCyclesNorm(NormLAnkleVic,NormLAnkleRef);
+DiffNormVicRef=[DiffNormRHipVicRef.meanstd' DiffNormLHipVicRef.meanstd'; DiffNormRKneeVicRef.meanstd' DiffNormLKneeVicRef.meanstd'; DiffNormRAnkleVicRef.meanstd' DiffNormLAnkleVicRef.meanstd'];
+DiffNormVicRefRaw=[DiffNormRHipVicRef.raw DiffNormRKneeVicRef.raw DiffNormRAnkleVicRef.raw DiffNormLHipVicRef.raw DiffNormLKneeVicRef.raw DiffNormLAnkleVicRef.raw];
+
+DiffNormRHipVicCorr=differGaitCyclesNorm(NormRHipVic,NormRHipCorr);
+DiffNormRKneeVicCorr=differGaitCyclesNorm(NormRKneeVic,NormRKneeCorr);
+DiffNormRAnkleVicCorr=differGaitCyclesNorm(NormRAnkleVic,NormRAnkleCorr);
+DiffNormLHipVicCorr=differGaitCyclesNorm(NormLHipVic,NormLHipCorr);
+DiffNormLKneeVicCorr=differGaitCyclesNorm(NormLKneeVic,NormLKneeCorr);
+DiffNormLAnkleVicCorr=differGaitCyclesNorm(NormLAnkleVic,NormLAnkleCorr);
+DiffNormVicCorr=[DiffNormRHipVicCorr.meanstd' DiffNormLHipVicCorr.meanstd'; DiffNormRKneeVicCorr.meanstd' DiffNormLKneeVicCorr.meanstd'; DiffNormRAnkleVicCorr.meanstd' DiffNormLAnkleVicCorr.meanstd'];
+DiffNormVicCorrRaw=[DiffNormRHipVicCorr.raw DiffNormRKneeVicCorr.raw DiffNormRAnkleVicCorr.raw DiffNormLHipVicCorr.raw DiffNormLKneeVicCorr.raw DiffNormLAnkleVicCorr.raw];
+
+DiffNormRHipVicRComp=differGaitCyclesNorm(NormRHipVicR,NormRHipComp);
+DiffNormRKneeVicRComp=differGaitCyclesNorm(NormRKneeVicR,NormRKneeComp);
+DiffNormRAnkleVicRComp=differGaitCyclesNorm(NormRAnkleVicR,NormRAnkleComp);
+DiffNormLHipVicRComp=differGaitCyclesNorm(NormLHipVicR,NormLHipComp);
+DiffNormLKneeVicRComp=differGaitCyclesNorm(NormLKneeVicR,NormLKneeComp);
+DiffNormLAnkleVicRComp=differGaitCyclesNorm(NormLAnkleVicR,NormLAnkleComp);
+DiffNormVicRComp=[DiffNormRHipVicRComp.meanstd' DiffNormLHipVicRComp.meanstd'; DiffNormRKneeVicRComp.meanstd' DiffNormLKneeVicRComp.meanstd'; DiffNormRAnkleVicRComp.meanstd' DiffNormLAnkleVicRComp.meanstd'];
+DiffNormVicRCompRaw=[DiffNormRHipVicRComp.raw DiffNormRKneeVicRComp.raw DiffNormRAnkleVicRComp.raw DiffNormLHipVicRComp.raw DiffNormLKneeVicRComp.raw DiffNormLAnkleVicRComp.raw];
+
