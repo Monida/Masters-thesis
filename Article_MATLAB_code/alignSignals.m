@@ -1,3 +1,6 @@
+%This function takes two signals one from Vicon and one from Xsense before they are divided into gait cycles
+%and returns the signals aligned 
+
 function alignedS2=alignSignals(s1,s2)
 s2=s2(1:length(s1));
 

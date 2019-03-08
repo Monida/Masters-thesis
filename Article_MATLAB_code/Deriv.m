@@ -1,3 +1,15 @@
+%Deriv is the mean across gait cycles of the derivative of the difference (Vicon-MVN) 
+%Deriv variable is a structure where
+%Deriv.raw is a 100X3 matrix; framesXplane 
+%frames = 99
+%Deriv.meanstd is a 2X3 matrix; [mean across gait cycles and then across frames; std across frames of the mean across gait cycles]
+%RSref is a Matrix that contains the values of all the frames of all gait
+%cycles of a given reference experimental condition from reference recording system
+%RS nonideal is a Matrix that contains the values of all the frames of all
+%gait cycles of a given experimental condition from recording system to be
+%compared to the reference recording system
+
+
 function DerivStruct=Deriv(RSref,RS)
 F=100; 
 trialCount=size(RSref,2);

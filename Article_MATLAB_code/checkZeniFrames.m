@@ -1,3 +1,4 @@
+ %Visualices the ZeniFrames??
  [FileNameVicon,PathNameVicon,~] = uigetfile('.csv');
     listVicon=dir(strcat(PathNameVicon,'*.csv'));
     filesCountVicon=length(listVicon);

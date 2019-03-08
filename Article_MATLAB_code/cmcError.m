@@ -1,4 +1,6 @@
 % Returns CMC1 and CMC2 (after removing offset)
+% This cmcError function is a variation from the cmc function. This variation compares the number of columns of RSref and RS
+% and selects the one with less columns to calculate GC
 %RSref is a Matrix that contains the values of all the frames of all gait
 %cycles of a given reference experimental condition from reference recording system
 %RS nonideal is a Matrix that contains the values of all the frames of all

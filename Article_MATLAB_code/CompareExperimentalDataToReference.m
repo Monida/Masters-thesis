@@ -1,7 +1,11 @@
 %Compare Experimental Data to Reference
+%This MATLAB file imports the experimental data and compares it to the Reference.
+%You can use this file to plot different combinations of the data
+
 %% 1 Extract Vicon and Xsens Data
 %{
 %% Align Signals
+%% Uncoment this section when you need to alignSignals
 %We Do Knee First becuase is the easiest one to find delay, and the rest
 %can have the same delay
 [RKneeRef, RKneeComp] = alignSignals(ViconJointAngles(:,16:18),XsensJointAngles(:,XsensJointsColumnIdx{16}));
@@ -210,7 +214,7 @@ end
 
 %% Select the folder for The NPose Trial
 
-    %MAKE SURE THAT THE FILES ARE STORED WITH THE NAMEFORMAT: Trial-001,...,Trial-010,...Trial-020, etc.
+    %MAKE SURE THAT THE FILES ARE STORED WITH THE NAME FORMAT: Trial-001,...,Trial-010,...Trial-020, etc.
     %So that when using dir to import the files they are in order
     ExperimentalCondition='NPose+NW';
     [FileNameXsens,PathNameXsens,~] = uigetfile('.mvnx');
@@ -534,11 +538,6 @@ DiffRefComp=[DiffRHipRefComp.meanstd' DiffLHipRefComp.meanstd'; DiffRKneeRefComp
 DiffRefCompRaw=[DiffRHipRefComp.raw DiffRKneeRefComp.raw DiffRAnkleRefComp.raw DiffLHipRefComp.raw DiffLKneeRefComp.raw DiffLAnkleRefComp.raw];
 %}
 %% Find the derivative of the difference
-%Deriv is the mean across gait cycles of the derivative of the difference (Vicon-MVN) 
-%Deriv variable is a structure where
-%Deriv.raw is a 100X3 matrix; framesXplane 
-%frames = 99
-%Deriv.meanstd is a 2X3 matrix; [mean across gait cycles and then across frames; std across frames of the mean across gait cycles]
 DerivRHipVicRef=Deriv(NormRHipVic,NormRHipRef);
 DerivRKneeVicRef=Deriv(NormRKneeVic,NormRKneeRef);
 DerivRAnkleVicRef=Deriv(NormRAnkleVic,NormRAnkleRef);

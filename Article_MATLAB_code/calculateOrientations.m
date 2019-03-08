@@ -1,10 +1,14 @@
 function [orientStructs,orientArray,angles] = calculateOrientations(bodyDimensions,PathName,FileName)
-%CALCULATEORIENTATIONS Summary of this function goes here
+%This function takes the body dimensions, and the PathName and FileName where the participant's data is stored, then reads
+%Vicon data from the participant's folder and estimates the body segments orientation in the Vicon frame. Finally it returns
+%th
+%This function can also show a movie of an avatar that represent the participant's gait
+
 % Equations and instructions taken from:
 % P:\Technical documetation\VICON 2012\Gait lab\Gait lab collection instructions and models\Vicon\ViconModels
 
 % \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-%   Detailed explanation goes here
+%   Patient dimensions are the dimensions measured during the data collection and stored in the participant's folder
 %   patientDimensions(1)=legLength
 %   patientDimensions(2)= kneeWidth
 %   patientDimensions(3)= ankleWidth
@@ -34,7 +38,8 @@ function [orientStructs,orientArray,angles] = calculateOrientations(bodyDimensio
 %       .x          -   Global xyz vector of local x-direction (AB/AD axis)
 %       .y          -   Global xyz vector of local y-direction (FE axis)
 %       .z          -   Global xyz vector of local z-direction (IE axis)
-% 2. orientArray
+% 2. orientArray = same information as in orientStructs but in array format
+% 3. angles = a structure of three different calclulated (EulerAngles, GroodAndSuntayAngles, KadabaAngles) based on the calculated body segements orientations. 
 
 %% 1. Read in Excel file containing Marker Positions, Joint Angles.  Unpack measurements
 if isempty(PathName)==1
