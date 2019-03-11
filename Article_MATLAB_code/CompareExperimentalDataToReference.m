@@ -1,6 +1,6 @@
 %Compare Experimental Data to Reference
 %This MATLAB file imports the experimental data and compares it to the Reference.
-%You can use this file to plot different combinations of the data
+%You can use this file to plot compare and analyze different gait data
 
 %% 1 Extract Vicon and Xsens Data
 %{

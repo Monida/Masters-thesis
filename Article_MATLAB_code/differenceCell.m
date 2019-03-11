@@ -1,3 +1,9 @@
+%This function returns a the difference between RSref and RS in cell format
+%RSref is a Matrix that contains the values of all the frames of all gait
+%cycles of a given reference experimental condition from reference recording system
+%RS nonideal is a Matrix that contains the values of all the frames of all
+%gait cycles of a given experimental condition from recording system to be
+%compared to the reference recording system
 function DiffCell=differenceCell(RSref,RS)
 
 for i=1:3

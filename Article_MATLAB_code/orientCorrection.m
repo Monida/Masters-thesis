@@ -1,5 +1,4 @@
-%Returns a structure that contain a cell Array with the normalized
-%Gait cycle data corrected using the Orientation Correction per joint.
+%Returns a cell Array with the Gait cycle data corrected using the Orientation Correction per joint.
 function CorrectedAngles=orientCorrection(ExperimentalCondition)
 trialCount=3;
 
@@ -54,29 +53,27 @@ LLowerLeg=21;
 RFoot=18;
 LFoot=22;
 
-% %% Re-orient them to face magnetic north
-% %Rotate 54 degrees about Xsens ZG axis
-% % a = angle to rotate
-% % [x, y, z] = axis to rotate around
-% a=10;
-% x=0; y=0; z=2;
-% 
-% q=[cosd(a/2) sind(a/2)*x sind(a/2)*y sind(a/2)*z];
-% 
-% for f=3:numOfFramesXsens
-%     Pelvis(f,:)=quatmultip(q,XsensOrient(f,Pelvis*4-3:Pelvis*4));
-%     
-%     RightUpperLeg(f,:)=quatmultip(q,XsensOrient(f,RUpperLeg*4-3:RUpperLeg*4));
-%     LeftUpperLeg(f,:)=quatmultip(q,XsensOrient(f,LUpperLeg*4-3:LUpperLeg*4));
-%     
-%     RightLowerLeg(f,:)=quatmultip(q,XsensOrient(f,RLowerLeg*4-3:RLowerLeg*4));
-%     LeftLowerLeg(f,:)=quatmultip(q,XsensOrient(f,LLowerLeg*4-3:LLowerLeg*4));
-%     
-%     Rfoot(f,:)=quatmultip(q,XsensOrient(f,RFoot*4-3:RFoot*4));
-%     Lfoot(f,:)=quatmultip(q,XsensOrient(f,LFoot*4-3:LFoot*4));
-% end
-% 
-% 
+%% Re-orient them to face magnetic north
+%Rotate 54 degrees about Xsens ZG axis
+% a = angle to rotate
+% [x, y, z] = axis to rotate around
+a=10;
+x=0; y=0; z=2;
+
+q=[cosd(a/2) sind(a/2)*x sind(a/2)*y sind(a/2)*z];
+
+for f=3:numOfFramesXsens
+    Pelvis(f,:)=quatmultip(q,XsensOrient(f,Pelvis*4-3:Pelvis*4));
+    
+    RightUpperLeg(f,:)=quatmultip(q,XsensOrient(f,RUpperLeg*4-3:RUpperLeg*4));
+    LeftUpperLeg(f,:)=quatmultip(q,XsensOrient(f,LUpperLeg*4-3:LUpperLeg*4));
+    
+    RightLowerLeg(f,:)=quatmultip(q,XsensOrient(f,RLowerLeg*4-3:RLowerLeg*4));
+    LeftLowerLeg(f,:)=quatmultip(q,XsensOrient(f,LLowerLeg*4-3:LLowerLeg*4));
+   
+    Rfoot(f,:)=quatmultip(q,XsensOrient(f,RFoot*4-3:RFoot*4));
+    Lfoot(f,:)=quatmultip(q,XsensOrient(f,LFoot*4-3:LFoot*4));
+end
 
 %% From quaternion 2 matrix
 for f=1:numOfFramesXsens
@@ -167,25 +164,11 @@ RAnkleCorr(:,3)=RAnkle(:,3);
 LAnkleCorr(:,3)=LAnkle(:,3);
 %}
 CorrectedAngles{t}=[RHipCorr,RKneeCorr,RAnkleCorr,LHipCorr,LKneeCorr,LAnkleCorr];
-%% Normalize
-% trial=t;
-%     [framesR,framesL]=findFrame(filename,ExperimentalCondition,trial);
-% 
-% 
-%     NormRHipCorr{t}=NormGaitCycles(RHipCorr,framesR.');
-%     NormLHipCorr{t}=NormGaitCycles(LHipCorr,framesL.');
-%     
-%     NormRKneeCorr{t}=NormGaitCycles(RKneeCorr,framesR.');
-%     NormLKneeCorr{t}=NormGaitCycles(LKneeCorr,framesL.');
-%     
-%     NormRAnkleCorr{t}=NormGaitCycles(RAnkleCorr,framesR.');
-%     NormLAnkleCorr{t}=NormGaitCycles(LAnkleCorr,framesL.');
 end
 
-%% Prepare output
-%NormCorrStruct=struct('RHipCorr',NormRHipCorr,'LHipCorr',NormLHipCorr,'RKneeCorr',NormRKneeCorr,'LKneeCorr',NormLKneeCorr,'RAnkleCorr',NormRAnkleCorr,'LAnkleCorr',NormLAnkleCorr);
 end
 
+%///////////////////////////////////////////SUBFUNCTIONS//////////////////////////////////////////////
 function [framesR,framesL]=findFrame(filename,ExperimentalCondition,trial)
 [num,txt,~] =xlsread(filename,'Frames');
 txtSz=size(txt); %All cells containting text

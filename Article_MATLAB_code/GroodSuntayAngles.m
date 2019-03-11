@@ -1,4 +1,5 @@
 %From Grood and Suntay (1983)
+%Given two rotation matrices Rp and Rd, parametrize them as joint angles according to Grood and Suntay (1983)
 function angles=GroodSuntayAngles(Rp,Rd,joint,side)
 %Rp = Rotation matrix of proximal segment
 %Rd = Rotation matrix of distal segment

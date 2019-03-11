@@ -1,6 +1,6 @@
 function [ tibialTorsion,alpha,beta] = staticVicon(bodyDimensions,PathName,FileName)
-%STATICVICON Summary of this function goes here
-%   Detailed explanation goes here
+%This function takes the Vicon position Data and returns tibialTorsion and alpha and beta angles to further calculate the body
+%segments orientations based on Vicon data
 %% 1. Read in Excel file containing Marker Positions, Joint Angles.  Unpack measurements
 if isempty(PathName)==1
     [FileNameVicon,PathNameVicon,~] = uigetfile('.csv');

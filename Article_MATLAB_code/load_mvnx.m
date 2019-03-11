@@ -1,3 +1,6 @@
+%This function loads the mvnx data (the output format of the Xsens sensors) 
+%and returns a struct containg all the mvnx information
+%This code can be found in the MVN BIOMECH AWINDA Manual
 function mvnx = load_mvnx(filename)
 % mvnx = load_mvnx(filename)
 % load mvnx file
