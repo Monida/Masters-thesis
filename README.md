@@ -5,6 +5,6 @@ We wanted to use a weareable motion capture system, to analyze the movement of p
 
 This repo contains the code I used to correct the signals. The data is only available upon request and on a base-to-base case, since it belongs to the facility where the experiments took place. 
 
-A map of script dependencies is shown below
+A diagram of the functions pipeline is shown below. The diagram describes the order in which functions are called. 
 
 ![Figure](functions_map.PNG)
